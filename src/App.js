@@ -69,7 +69,7 @@ function App() {
   }, [list]);
   return (
     <div className="flex flex-col items-center h-screen ">
-      <div className="block p-6 max-w-lg w-full min-wd-md bg-gray-600 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 my-auto ">
+      <div className="block p-6 max-w-lg w-full min-wd-md bg-gray-600 rounded-lg border border-gray-200 shadow-md  my-auto ">
         <form action="" className="mt-4" onSubmit={handleSubmit}>
           {alert.show && (
             <Alert alert={alert} removeAlert={showAlert} list={list} />
@@ -80,7 +80,7 @@ function App() {
           <div>
             <input
               type="text"
-              className="block w-full p-2 my-2 bg-gray-200 rounded-lg border border-gray-200 focus:outline-none focus:bg-gray-200 dark:bg-gray-800 dark:border-gray-700 dark:focus:bg-gray-700"
+              className="block w-full p-2 my-2 bg-gray-200 rounded-lg border border-gray-200 focus:outline-none"
               placeholder="Add an item"
               value={name}
               onChange={(e) => setName(e.target.value)}
