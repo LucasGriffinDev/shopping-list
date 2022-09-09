@@ -8,4 +8,4 @@
 
 -clear all notes in storage
 
-[demo link]()
+[demo link](https://lucasgriffindev.github.io/shopping-list/)
