@@ -1,13 +1,20 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Alert } from './components/Alert';
 import { List } from './components/List';
 
+const getLocalStorage = () => {
+  let list = localStorage.getItem('list');
+  if (list) {
+    return JSON.parse(list);
+  }
+  return [];
+};
+
 function App() {
   const [name, setName] = useState('');
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(getLocalStorage());
   const [isEditing, setIsEditing] = useState(false);
   const [editID, setEditID] = useState(null);
-  const [editItem, setEditItem] = useState('');
   const [alert, setAlert] = useState({
     show: false,
     message: 'Hello World',
@@ -54,8 +61,12 @@ function App() {
     setName(item.title);
     setIsEditing(true);
     setEditID(id);
-    setEditItem(id);
+    setEditID(id);
   };
+
+  useEffect(() => {
+    localStorage.setItem('list', JSON.stringify(list));
+  }, [list]);
   return (
     <div className="flex flex-col items-center h-screen ">
       <div className="block p-6 max-w-lg w-full min-wd-md bg-gray-600 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 my-auto ">
